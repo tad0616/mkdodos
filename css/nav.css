@@ -1,0 +1,123 @@
+ul.navigation{
+    /*height: 40px;*/
+    /*padding: 0 20px;*/
+}
+
+
+ul.navigation li{
+    z-index: 9999;
+    position: relative;
+    /*float: left;*/
+
+}
+
+ul.navigation a{
+    text-decoration: none;
+}
+
+
+body, ul.navigation, ul.navigation li, ul.navigation ul, a{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: none;
+}
+ul.navigation,ul.navigation li {
+    list-style: none;
+}
+
+
+ul.navigation > li {
+    position: relative;
+    float: left;
+    /*margin:0px 20px;*/
+
+
+    padding: 0px;
+    /*margin: 0px;*/
+    display: inline;
+
+}
+
+
+
+
+
+
+
+/* 特定在第一層 > 第二層之後下拉部分之樣式 */
+ul.navigation li ul{
+    display: none;
+    float: left;
+    position: absolute;
+    left: 0;
+    margin: 0;
+}
+
+/* 當第一層選單被觸發時，指定第二層顯示 */
+ul.navigation li:hover > ul{
+    display: block;
+}
+
+/* 特定在第二層或之後下拉部分 li 之樣式 */
+ul.navigation ul li {
+    border-bottom: 1px solid #DDD;
+}
+
+/* 特定在第二層或之後下拉部分 li （最後一項不要底線）之樣式 */
+ul.navigation ul li:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+ul.navigation ul{
+   border:1px solid #808080;
+}
+
+/* 第二層或之後 選單 li 之樣式 */
+ul.navigation ul a {
+    width: 120px;
+    padding: 10px 10px 10px 15px;
+    /*color: #666;*/
+    color:#000;
+    background: #F5F5F5;
+    /*background-color: rgb(0,128,10);*/
+    /*border:1px solid green;*/
+}
+
+ul.navigation ul a:hover {
+    background: #CCC;
+}
+
+/* 第三層之後，上一層的選單觸發則顯示出來（皆為橫向拓展） */
+ul.navigation ul li:hover > ul{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+
+/* 箭頭向下 */
+.arrow-bottom {
+    display: inline-block;
+    margin-left: 5px;
+    border-top: 4px solid #FFF;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    width: 1px;
+    height: 1px;
+}
+/* 箭頭向右 */
+.arrow-right {
+    display: inline-block;
+    margin-left: 12px;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid #666;
+    width: 1px;
+    height: 1px;
+}
