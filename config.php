@@ -1,18 +1,18 @@
 <?php
 //佈景種類是否可自訂
-$theme_change = 0;
+$theme_change = 1;
 
 //預設佈景種類 bootstrap , bootstrap3 , html
 $theme_kind = 'bootstrap';
 
 //可選用佈景種類 bootstrap , bootstrap3 , html , mix （$theme_change=1 時才有用）
-$theme_kind_arr = 'bootstrap';
+$theme_kind_arr = 'bootstrap,bootstrap3';
 
 //引入哪些選單？ all(含 my_menu,admin,user),my_menu,admin,user
 $menu_var_kind = 'all';
 
 //額外顏色設定 如： bootstrap3/themes/light/Cerulean
-$theme_color = '';
+$theme_color = 'bootstrap';
 
 /*
 tabs-1 版面基礎設定
@@ -167,6 +167,10 @@ $config_enable['block_title_style'] = array('enable' => '', 'min' => '', 'max' =
 //區塊內容區樣式手動設定[theme_css_blocks.html]，值： 1 （重複）, 0 （不重複）
 $config_enable['block_content_style'] = array('enable' => '', 'min' => '', 'max' => '', 'require' => '', 'default' => '');
 
+$config_enable['bt_bg_color']['leftBlock']   = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#7CBBBB');
+$config_enable['bt_bg_color']['rightBlock']  = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#D2C38E');
+$config_enable['bt_bg_color']['centerBlock'] = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#AE92FF');
+
 /*
 若沒指定位置（如上方預設），那就是全部區塊預設值，若欲指定位置，只要多一個索引值即可：
 $config_enable['bt_xx']['leftBlock']：左區塊設定
@@ -195,10 +199,10 @@ $config_enable['navbar_pos'] = array('enable' => '0', 'min' => '', 'max' => '', 
 $config_enable['navbar_bg_top'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#008000');
 
 //導覽工具列 漸層顏色(bottom)[theme_css_navbar.html]
-$config_enable['navbar_bg_bottom'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#2fa4e7');
+$config_enable['navbar_bg_bottom'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#7FA57F');
 
 //導覽工具列 連結區塊底色[theme_css_navbar.html]
-$config_enable['navbar_hover'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#1684c2');
+$config_enable['navbar_hover'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#3a3a3a');
 
 //上傳導覽列背景圖[navbar.html]，值：可指定置於「themes/佈景/images/nav_bg/」下的某一檔案名稱
 $config_enable['navbar_img'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '0', 'default' => '');

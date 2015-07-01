@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="<{$xoops_langcode}>">
   <head>
+    <!--目前$_SESSION['bootstrap']="<{php}>echo $_SESSION['bootstrap'];<{/php}>"; -->
+    <!--將目前的資料夾名稱，設定為樣板標籤變數 theme_name-->
+    <{assign var=theme_name value=$xoTheme->folderName}>
+
+    <!--載入由使用者設定的各項佈景變數-->
     <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/get_var.html"}>
-    <meta charset="<{$xoops_charset}>">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="<{$xoops_meta_robots}>" />
-    <meta name="keywords" content="<{$xoops_meta_keywords}>" />
-    <meta name="description" content="<{$xoops_meta_description}>" />
-    <meta name="rating" content="<{$xoops_meta_rating}>" />
-    <meta name="author" content="<{$xoops_meta_author}>" />
-    <meta name="copyright" content="<{$xoops_meta_copyright}>" />
-    <meta name="generator" content="XOOPS" />
+    <{if $theme_kind=="bootstrap"}>
+        <{assign var=tpl_folder value="themes_tpl"}>
+        <{assign var=row value="row-fluid"}>
+        <{assign var=span value="span"}>
+    <{else}>
+        <{assign var=tpl_folder value="themes3_tpl"}>
+        <{assign var=row value="row"}>
+        <{assign var=span value="col-md-"}>
+    <{/if}>
+    <!--$tpl_folder="<{$tpl_folder}> -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/meta.html"}>
 
+    <!-- 網站的標題及標語 -->
     <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
 
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/link_css.html"}>
 
-    <!-- Rss -->
-    <link rel="alternate" type="application/rss+xml" title="" href="<{xoAppUrl backend.php}>" />
+    <!-- 給模組套用的樣板標籤 -->
+    <{$xoops_module_header}>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/ico" href="<{xoImgUrl icons/favicon.ico}>" />
-    <link rel="icon" type="image/png" href="<{xoImgUrl icons/favicon.png}>" />
-
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl css/xoops.css}>" />
-    <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl css/style.css}>" />
-    <link href="<{xoAppUrl modules/tadtools/bootstrap/css/bootstrap.css}>" rel="stylesheet" media="screen">
+    <!-- 局部套用的樣式，如果有載入完整樣式 theme_css.html 那就不需要這一部份 -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/theme_css.html"}>
     <link href="<{xoImgUrl css/nav.css}>" rel="stylesheet" media="screen">
 
 
@@ -45,7 +48,7 @@
         color:<{$hover_color}>;
       }
 
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/theme_css_blocks.html"}>
+      <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/theme_css_blocks.html"}>
 
       #header{
         background:url(<{$header_img}>) no-repeat;
@@ -133,11 +136,10 @@
         cursor: pointer;
       }
 
-
+      #footer_content a{
+        color: <{$footer_color}>;
+      }
     </style>
-
-    <{$xoops_module_header}>
-
   </head>
   <body>
     <!-- 頁首 -->
@@ -147,52 +149,13 @@
       <{includeq file="$theme_name/tpl/logo.html"}>
 
       <!-- 導覽列 -->
-      <div id="navbar_container">
-      </div>
-      <div id="navbar">
-        <ul class="navigation">
-          <{foreach from=$menu_var item=menu}>
-            <li>
-              <a href='<{$menu.url}>'><{$menu.title}></a>
-
-              <{if $menu.submenu}>
-              <ul>
-                  <{foreach from=$menu.submenu item=menu2}>
-                  <li>
-                    <a href='<{$menu2.url}>'>
-                      <i class="<{$menu2.icon}>"></i>
-                      <{$menu2.title}>
-                    </a>
-
-                    <{if $menu2.submenu}>
-                    <ul>
-                        <{foreach from=$menu2.submenu item=menu3}>
-                        <li>
-                          <a href='<{$menu3.url}>'>
-                           <i class="<{$menu3.icon}>"></i>
-                           <{$menu3.title}>
-                          </a>
-                        </li>
-                        <{/foreach}>
-                    </ul>
-                    <{/if}>
-                  </li>
-                  <{/foreach}>
-              </ul>
-              <{/if}>
-            </li>
-          <{/foreach}>
-
-        </ul>
-      </div>
+      <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/menu/cssmenu/menu.html"}>
     </div>
 
-
-
-    <div class="container">
+    <div class="container-fluid">
       <!-- 內容 -->
       <div id="xoops_theme_content">
-        <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/$theme_type.html"}>
+        <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/$theme_type.html"}>
       </div>
 
 
@@ -207,11 +170,13 @@
 
       <div id="gotop"><{$smarty.const.THEME_MODULE1}> <i class="icon-chevron-up icon-white"></i></div>
     </div>
-    <script type='text/javascript'>
-        if (typeof jQuery == 'undefined') {
-            document.write("<script type='text/javascript' src='<{xoAppUrl modules/tadtools/jquery/jquery.js}>'><\/script>");
-        }
-    </script>
+
+
+    <!-- 載入 BootStrap所需的javascript -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/bootstrap_js.html"}>
+
+    <!-- 載入自訂的javascript -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/my_js.html"}>
 
 
     <script type="text/javascript">
@@ -236,16 +201,11 @@
         });
     </script>
 
-
-    <script src="<{xoAppUrl modules/tadtools/bootstrap/js/bootstrap.min.js}>"></script>
-
-    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/my_js.html"}>
-
-
-    <!-- 顯示參數，開發用，開發完可刪除 -->
-    <{if $show_var=='1'}>
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
+    <!-- 是否顯示樣板變數資訊 -->
+    <{if $show_var==1}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
     <{/if}>
+
 
   </body>
 </html>
