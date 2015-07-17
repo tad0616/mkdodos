@@ -102,7 +102,7 @@ $config_enable['slide_width'] = array('enable' => '1', 'min' => '', 'max' => '',
 $config_enable['slide_height'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '0');
 
 //是否可上傳滑動圖片[slideshow_responsive.html]
-$config_enable['use_slide'] = array('enable' => '', 'min' => '', 'max' => '', 'require' => '', 'default' => '');
+$config_enable['use_slide'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '', 'default' => '');
 
 /*
 tabs-4 logo圖

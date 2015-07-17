@@ -2,3 +2,17 @@
   border-radius: 0px;/*黑色選單放在頁面頂端,不要圓角可避免旁邊有白白的*/
 }
 
+a.block_config {
+  position:absolute;
+  top:10px;
+  right:10px;
+  display: block;
+  float: right;
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/block_config.png);
+}
+
+a.block_config:hover {
+  background-image: url(../images/block_config_hover.png);
+}
