@@ -46,3 +46,8 @@ define("TF_FOOTER_COLOR", "頁尾文字顏色");
 define("TF_FOOTER_COLOR_DESC", "頁尾文字顏色");
 define("TF_FOOTER_BGCOLOR", "頁尾背景色");
 define("TF_FOOTER_BGCOLOR_DESC", "頁尾背景色");
+define("TF_FONT_FAMILY", "主要字型設定");
+define("TF_FONT_FAMILY_DEFAULT", "\"Helvetica Neue\",Helvetica,Arial,\"微軟正黑體\",sans-serif");
+define("TF_FONT_FAMILY_DESC", "輸入字型名稱，有空白的部份需要用\"\"包起來。如：" . TF_FONT_FAMILY_DEFAULT);
+define("TF_USE_CONTAINER", "是否使用有限寬度？");
+define("TF_USE_CONTAINER_DESC", "僅BootStrap模式有效。若否則會以全螢幕呈現");
