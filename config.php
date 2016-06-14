@@ -2,10 +2,10 @@
 //佈景種類是否可自訂
 $theme_change = 0;
 
-//預設佈景種類 bootstrap , bootstrap3 , html
+//預設佈景種類 bootstrap3 , html , mix
 $theme_kind = 'bootstrap3';
 
-//可選用佈景種類 bootstrap , bootstrap3 , html , mix （$theme_change=1 時才有用）
+//可選用佈景種類 bootstrap3 , html , mix （$theme_change=1 時才有用）
 $theme_kind_arr = 'bootstrap3';
 
 //引入哪些選單？ all(含 my_menu,admin,user),my_menu,admin,user
@@ -128,6 +128,9 @@ $config_enable['logo_bottom'] = array('enable' => '0', 'min' => '', 'max' => '',
 //Logo離左邊距離[logo.html]，值：數值，單位一律為 px
 $config_enable['logo_left'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '0', 'default' => '');
 
+//Logo置中[logo.html]，值：1,0
+$config_enable['logo_center'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '', 'default' => '');
+
 /*
 tabs-5 區塊標題列
  */
@@ -166,10 +169,6 @@ $config_enable['block_title_style'] = array('enable' => '', 'min' => '', 'max' =
 
 //區塊內容區樣式手動設定[theme_css_blocks.html]，值： 1 （重複）, 0 （不重複）
 $config_enable['block_content_style'] = array('enable' => '', 'min' => '', 'max' => '', 'require' => '', 'default' => '');
-
-$config_enable['bt_bg_color']['leftBlock']   = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#7CBBBB');
-$config_enable['bt_bg_color']['rightBlock']  = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#D2C38E');
-$config_enable['bt_bg_color']['centerBlock'] = array('enable' => 1, 'min' => '', 'max' => '', 'require' => 0, 'default' => '#AE92FF');
 
 /*
 若沒指定位置（如上方預設），那就是全部區塊預設值，若欲指定位置，只要多一個索引值即可：
