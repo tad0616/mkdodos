@@ -17,7 +17,7 @@
     <!-- 給模組套用的樣板標籤 -->
     <{$xoops_module_header}>
 
-    <!-- 局部套用的樣式，如果有載入完整樣式 theme_css.html 那就不需要這一部份 -->
+    <!-- 局部套用的樣式，如果有載入完整樣式 theme_css.tpl 那就不需要這一部份 -->
     <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/theme_css.tpl"}>
     <link href="<{xoImgUrl css/nav.css}>" rel="stylesheet" media="screen">
     <link href="<{xoImgUrl css/style.css}>" rel="stylesheet" media="screen">
