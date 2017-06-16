@@ -50,7 +50,7 @@
         position: relative;
       }
 
-      #header h1{
+      #header .h1{
         /*color:#2F4F4F;*/
         padding-left:10px;
         color:<{$title_color}>;
